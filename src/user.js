@@ -1,8 +1,10 @@
 'use strict';
-// Returns a display name for a user. BUG: assumes user.profile always exists,
-// so it throws "TypeError: Cannot read properties of undefined (reading 'name')"
-// for users created before profiles existed -> shows up in Sentry.
+// Returns a display name for a user.
+// Legacy users created before profiles existed are plain objects with no
+// `profile`, so guard the whole access chain to avoid
+// "TypeError: Cannot read properties of undefined (reading 'name')".
 function displayName(user) {
-  return user.profile.name.toUpperCase();
+  const name = user?.profile?.name;
+  return typeof name === 'string' ? name.toUpperCase() : 'UNKNOWN';
 }
 module.exports = { displayName };
