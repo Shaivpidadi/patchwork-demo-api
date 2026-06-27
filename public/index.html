@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>billing-api — demo service</title>
+<style>
+  body { margin:0; min-height:100vh; background:#0a0b0f; color:#e7e9ee;
+    font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; display:grid; place-items:center; }
+  .card { max-width:640px; padding:40px; }
+  h1 { margin:0 0 6px; } .sub { color:#8b91a3; margin-bottom:28px; }
+  a.btn { display:inline-block; padding:12px 18px; border-radius:10px; font-weight:600; text-decoration:none; margin:6px 8px 6px 0; }
+  .ok { background:#22c55e22; color:#7ff0c0; border:1px solid #22c55e55; }
+  .bad { background:#ef444422; color:#ffb3b3; border:1px solid #ef444455; }
+  code { background:#191c25; padding:2px 6px; border-radius:5px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>billing-api</h1>
+  <div class="sub">A tiny user service. One endpoint, one lurking bug.</div>
+  <p>Look up a user's display name:</p>
+  <a class="btn ok" href="/api/profile?id=ada" target="_blank">GET /api/profile?id=ada → works</a>
+  <a class="btn bad" href="/api/profile?id=legacy" target="_blank">GET /api/profile?id=legacy → 💥 crashes</a>
+  <p class="sub">A legacy user has no <code>profile</code>, so <code>displayName()</code> throws at runtime.
+  When it crashes, it reports to Sentry — and Patchwork picks it up and ships a fix.</p>
+</div>
+</body>
+</html>

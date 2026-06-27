@@ -4,5 +4,8 @@
   "private": true,
   "type": "commonjs",
   "description": "Demo API service with a runtime null-deref bug (Sentry / Rail A).",
-  "scripts": { "test": "node --test" }
+  "scripts": { "test": "node --test test/*.test.js" },
+  "dependencies": {
+    "@sentry/node": "^8.45.0"
+  }
 }
