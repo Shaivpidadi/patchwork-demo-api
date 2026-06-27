@@ -1,0 +1,8 @@
+{
+  "name": "patchwork-demo-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Demo API service with a runtime null-deref bug (Sentry / Rail A).",
+  "scripts": { "test": "node --test" }
+}
